@@ -4,7 +4,7 @@ const hbs = require('hbs')
 const forecast = require('./utils/forecast')
 
 const app = express()
-
+const port = process.env.PORT || 3000
 //define path for express config
 const publicDirecPath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -83,6 +83,9 @@ app.get('*',(req,res)=>{ //* is for the pages that is not defined above
 })
 
 //starting a server //3000 is server for dev
-app.listen(3000, ()=>{
-    console.log('server started')
+// app.listen(3000, ()=>{//for local device
+//     console.log('server started')
+// })
+app.listen(port,()=>{
+    console.log('server is on ' + port)
 })
